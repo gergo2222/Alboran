@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 
-import actions from '../actions/home'
+import actions from '../../containers/home/actions'
 
 const defaultState = {}
 

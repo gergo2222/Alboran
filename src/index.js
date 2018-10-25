@@ -4,19 +4,19 @@ import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 
-import store from './app/store'
-import { Navigation } from './app/components/navigation'
+import store from './redux/store'
+import { Navigation } from './components/navigation'
+import { Content } from './components/content/content'
 
-import Button from '@material-ui/core/Button'
 import * as serviceWorker from './serviceWorker';
+import './index.css'
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
         <Navigation />
-        Alright, this is content
-        <Button variant="contained">Cool</Button>
+        <Content />
       </div>
     </BrowserRouter>
   </Provider>,
