@@ -2,12 +2,10 @@ import React from 'react'
 
 import { Area } from './area'
 
-export const Areas = () => {
+export const Areas = ({areas}) => {
   return (
     <div>
-      <Area label="Home" />
-      <Area label="Sales" />
-      <Area label="Operations" />
+      {areas.map((area) => (<Area label={area} />))}
     </div>
   )
 }

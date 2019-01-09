@@ -6,24 +6,24 @@ import { Menu } from './menu'
 
 const navigation = [
   {
-    label = "Home",
-    menu = [
+    label: "Home",
+    menu: [
       "Home",
       "Help Desk",
       "Offices",
     ]
   },
   {
-    label = "Sales",
-    menu = [
+    label: "Sales",
+    menu: [
       "Leads",
       "Opportunities",
       "Clients",
     ]
   },
   {
-    label = "Operations",
-    menu = [
+    label: "Operations",
+    menu: [
       "Clients",
       "Projects",
       "Assignments",
@@ -34,13 +34,8 @@ const navigation = [
 export const Navigation = () => {
   return (
     <div id="navigation-container">
-      {navigation.map(item => {
-        return (
-          <div>
-            <Areas />
-            <Menu />
-          </div>)
-      })}
+      <Areas areas={navigation.map(({label}) => label)} />
+      <Menu />
     </div>
   )
 }
