@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 
 import store from './redux/store'
-import { Navigation } from './components/navigation'
-import { Content } from './components/content/content'
+import { Navigation } from './scenes/navigation'
+import { Content } from './scenes/content'
 
 import * as serviceWorker from './serviceWorker';
 import './index.css'
