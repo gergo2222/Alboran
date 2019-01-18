@@ -4,7 +4,7 @@ const initialState = {
   navigation: []
 }
 
-export function reduce(state = initialState, action) {
+export function navbar (state = initialState, action) {
   switch (action.type) {
     case actionTypes.GET_NAVBAR_STRUCTURE_REQUESTED:
       return {

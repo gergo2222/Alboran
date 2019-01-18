@@ -31,32 +31,7 @@ export function getNavbarStructure() {
 
     answer
       .then(
-        _ => [
-          {
-            label: "Home",
-            menu: [
-              "Home",
-              "Help Desk",
-              "Offices",
-            ]
-          },
-          {
-            label: "Sales",
-            menu: [
-              "Leads",
-              "Opportunities",
-              "Clients",
-            ]
-          },
-          {
-            label: "Operations",
-            menu: [
-              "Clients",
-              "Projects",
-              "Assignments",
-            ]
-          }
-        ],
+        _ => getNavigationStructure(),
         error => console.log('An error occured', error)
       )
       .then(structure => dispatch(navbarStructureReceived(structure)))

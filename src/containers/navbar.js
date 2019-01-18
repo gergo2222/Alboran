@@ -4,7 +4,7 @@ import { getNavbarStructure } from '../redux/navbar/actions'
 
 const mapStateToProps = state => {
   return {
-    navigation: state.navigation
+    navigation: state.navbar.navigation
   }
 }
 
