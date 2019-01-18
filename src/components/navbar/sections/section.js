@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import './section.css'
 
-export const Section = ({label}) => {
-  return (
-    <div className="section">
-      <Link to={`/${label}`}>
-        {label}
-      </Link>
-    </div>
-  )
+export class Section extends Component {
+  constructor(props) {
+    super(props)
+
+    this.sectionSelected = this.sectionSelected.bind(this)
+  }
+
+  sectionSelected() {
+    this.props.onSectionSelected(this.props.label)
+  }
+
+  render() {
+    const {label} = this.props
+    return (
+      <div className="section" onClick={this.sectionSelected}>
+        <Link to={`/${label}`}>
+          {label}
+        </Link>
+      </div>
+    )
+  }
 }

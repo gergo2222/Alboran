@@ -1,7 +1,8 @@
 import { actionTypes } from './constants'
 
 const initialState = {
-  navigation: []
+  navigation: [],
+  selectedSection: 'Home'
 }
 
 export function navbar (state = initialState, action) {
@@ -11,10 +12,14 @@ export function navbar (state = initialState, action) {
         ...state
       }
     case actionTypes.GET_NAVBAR_STRUCTURE_COMPLETED:
-      console.log(action.structure, 'asdasdasd')
       return {
         ...state,
         navigation: action.structure
+      }
+    case actionTypes.SECTION_CHANGED:
+      return {
+        ...state,
+        selectedSection: state.selectedSection
       }
     default:
       return initialState

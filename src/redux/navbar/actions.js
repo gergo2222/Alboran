@@ -21,6 +21,13 @@ export function navbarStructureReceived(structure) {
   }
 }
 
+function sectionChanged(section) {
+  return {
+    type: actionTypes.SECTION_CHANGED,
+    selectedSection: section
+  }
+}
+
 export function getNavbarStructure() {
   return function(dispatch) {
     dispatch(navbarStructureRequested())
@@ -37,5 +44,11 @@ export function getNavbarStructure() {
       .then(structure => dispatch(navbarStructureReceived(structure)))
 
       return answer
+  }
+}
+
+export function sectionSelected(section) {
+  return function (dispatch) {
+    dispatch(sectionChanged(section))
   }
 }

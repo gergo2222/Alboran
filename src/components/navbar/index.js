@@ -12,8 +12,8 @@ export class NavBar extends Component {
   render() {
     return (
       <div id="navbar-container">
-        <Sections sections={this.props.navigation.map(({label}) => label)} />
-        <Menu />
+        <Sections sections={this.props.navigation.map(({label}) => label)} onSectionSelected={this.props.sectionSelected} />
+        <Menu navigation={this.props.navigation} />
       </div>
     )
   }

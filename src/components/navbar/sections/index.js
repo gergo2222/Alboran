@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import { Section } from './section'
 
-export const Sections = ({sections}) => {
-  return (
-    <div>
-      {sections.map((area, i) => (<Section key={i} label={area} />))}
-    </div>
-  )
+export class Sections extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    const { sections } = this.props
+    return (
+      <div>
+        {sections.map((area, i) => (<Section key={i} label={area} onSectionSelected={this.props.onSectionSelected} />))}
+      </div>
+    )
+  }
 }

@@ -1,6 +1,9 @@
 import { connect } from 'react-redux'
 import { NavBar } from '../components/navbar'
-import { getNavbarStructure } from '../redux/navbar/actions'
+import {
+  getNavbarStructure,
+  sectionSelected
+} from '../redux/navbar/actions'
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getNavBarStructure: () => dispatch(getNavbarStructure())
+    getNavBarStructure: () => dispatch(getNavbarStructure()),
+    sectionSelected: (section) => dispatch(sectionSelected(section))
   }
 }
 
