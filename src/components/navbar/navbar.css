@@ -1,7 +1,7 @@
 
 #navbar-container {
-  width: 100px;
-  background-color: #008ddd;
+  width: 300px;
   height: 100%;
   position: fixed;
+  display: flex;
 }

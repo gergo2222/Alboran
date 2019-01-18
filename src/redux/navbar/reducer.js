@@ -1,7 +1,10 @@
 import { actionTypes } from './constants'
 
 const initialState = {
-  navigation: [],
+  navigation: [{
+      label: "Home",
+      menu: []
+    }],
   activeSection: 'Home'
 }
 

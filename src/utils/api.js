@@ -6,6 +6,8 @@ export const getNavigationStructure = () => {
         "Home",
         "Help Desk",
         "Offices",
+        "Countries",
+        "Currencies",
       ]
     },
     {
