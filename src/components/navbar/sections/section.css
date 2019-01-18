@@ -17,4 +17,5 @@
   flex-direction: column;
   align-items: center;
   background-color: #008ddd;
+  box-shadow: 3px 0px 3px 0 lightgrey;
 }

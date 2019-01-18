@@ -8,6 +8,8 @@ export const getNavigationStructure = () => {
         "Offices",
         "Countries",
         "Currencies",
+        "User Directory",
+        "Release Notes",
       ]
     },
     {

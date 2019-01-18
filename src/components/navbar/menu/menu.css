@@ -1,8 +1,25 @@
 #menu {
   display: flex;
   width: 150px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
   flex-wrap: wrap;
   flex-direction: column;
+  box-shadow: 5px 0px 5px 0 lightgrey;
+}
+
+#header {
+  font-size: x-large;
+  padding: inherit;
+}
+
+.menu-item {
+  padding-left: inherit;
+  padding-right: inherit;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.menu-item:hover {
+  background-color: lightgrey;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
 
 export const Header = ({title}) => {
-  return (<span>{title}</span>)
+  return (<p id="header">{title}</p>)
 }

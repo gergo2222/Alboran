@@ -11,7 +11,6 @@ export class NavBar extends Component {
 
   render() {
     const activeSection = this.props.navigation.find(section => section.label === this.props.activeSection)
-    console.log('default', this.props)
     return (
       <div id="navbar-container">
         <Sections sections={this.props.navigation.map(({label}) => label)} onSectionSelected={this.props.sectionSelected} />
