@@ -7,7 +7,8 @@ import {
 
 const mapStateToProps = state => {
   return {
-    navigation: state.navbar.navigation
+    navigation: state.navbar.navigation,
+    activeSection: state.navbar.activeSection
   }
 }
 

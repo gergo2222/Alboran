@@ -3,10 +3,6 @@ import React, { Component } from 'react'
 import { Section } from './section'
 
 export class Sections extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const { sections } = this.props
     return (

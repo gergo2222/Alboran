@@ -2,7 +2,7 @@ import { actionTypes } from './constants'
 
 const initialState = {
   navigation: [],
-  selectedSection: 'Home'
+  activeSection: 'Home'
 }
 
 export function navbar (state = initialState, action) {
@@ -19,7 +19,7 @@ export function navbar (state = initialState, action) {
     case actionTypes.SECTION_CHANGED:
       return {
         ...state,
-        selectedSection: state.selectedSection
+        activeSection: action.selectedSection
       }
     default:
       return initialState
