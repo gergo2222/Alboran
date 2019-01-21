@@ -5,10 +5,11 @@ import './section.css'
 
 export class Sections extends Component {
   render() {
-    const { sections } = this.props
+    const { navigation } = this.props
     return (
       <div id="sections-wrapper">
-        {sections.map((area, i) => (<Section key={i} label={area} onSectionSelected={this.props.onSectionSelected} />))}
+        {Object.keys(this.props.navigation).map((section, i) =>
+          <Section key={i} label={navigation[section].label} onSectionSelected={this.props.onSectionSelected} />)}
       </div>
     )
   }

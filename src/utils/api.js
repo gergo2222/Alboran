@@ -1,32 +1,3 @@
 export const getNavigationStructure = () => {
-  return [
-    {
-      label: "Home",
-      menu: [
-        "Home",
-        "Help Desk",
-        "Offices",
-        "Countries",
-        "Currencies",
-        "User Directory",
-        "Release Notes",
-      ]
-    },
-    {
-      label: "Sales",
-      menu: [
-        "Leads",
-        "Opportunities",
-        "Clients",
-      ]
-    },
-    {
-      label: "Operations",
-      menu: [
-        "Clients",
-        "Projects",
-        "Assignments",
-      ]
-    }
-  ]
+  return {}
 }

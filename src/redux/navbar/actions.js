@@ -1,5 +1,4 @@
-import { actionTypes } from './constants'
-import { getNavigationStructure } from '../../utils/api'
+import { actionTypes, sectionLayout } from './constants'
 
 export function selectSection(section) {
   return {
@@ -14,10 +13,10 @@ export function navbarStructureRequested() {
   }
 }
 
-export function navbarStructureReceived(structure) {
+export function navbarStructureReceived() {
   return {
     type: actionTypes.GET_NAVBAR_STRUCTURE_COMPLETED,
-    structure: structure
+    structure: sectionLayout
   }
 }
 
@@ -25,25 +24,6 @@ function sectionChanged(section) {
   return {
     type: actionTypes.SECTION_CHANGED,
     selectedSection: section
-  }
-}
-
-export function getNavbarStructure() {
-  return function(dispatch) {
-    dispatch(navbarStructureRequested())
-    // return fetch(``)
-    let answer = new Promise((resolve, reject) => {
-      resolve()
-    })
-
-    answer
-      .then(
-        _ => getNavigationStructure(),
-        error => console.log('An error occured', error)
-      )
-      .then(structure => dispatch(navbarStructureReceived(structure)))
-
-      return answer
   }
 }
 

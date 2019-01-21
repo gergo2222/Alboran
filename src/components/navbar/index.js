@@ -10,10 +10,10 @@ export class NavBar extends Component {
   }
 
   render() {
-    const activeSection = this.props.navigation.find(section => section.label === this.props.activeSection)
+    const activeSection = this.props.navigation[this.props.activeSection]
     return (
       <div id="navbar-container">
-        <Sections sections={this.props.navigation.map(({label}) => label)} onSectionSelected={this.props.sectionSelected} />
+        <Sections navigation={this.props.navigation} onSectionSelected={this.props.sectionSelected} />
         <Menu section={activeSection} />
       </div>
     )
