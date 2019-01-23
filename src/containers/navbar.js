@@ -6,9 +6,13 @@ import {
 } from '../redux/navbar/actions'
 
 const mapStateToProps = state => {
+  
+  const navigation = state.navbar.navigation
+  const activeSection = state.navbar.activeSection
+  const menu = navigation[activeSection]
+  console.log('state.navbar.navigation', state.navbar.navigation,  state.navbar.activeSection, menu)
   return {
-    navigation: state.navbar.navigation,
-    activeSection: state.navbar.activeSection
+    menu
   }
 }
 

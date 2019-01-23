@@ -2,12 +2,12 @@ import { actionTypes } from './constants'
 
 const initialState = {
   navigation: {
-    Home: {
+    home: {
         label: "Home",
         menu: []
       }
     },
-  activeSection: 'Home'
+  activeSection: 'home'
 }
 
 export function navbar (state = initialState, action) {

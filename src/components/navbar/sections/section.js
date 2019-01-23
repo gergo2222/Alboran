@@ -11,16 +11,33 @@ export class Section extends Component {
   }
 
   sectionSelected() {
-    this.props.onSectionSelected(this.props.label)
+    this.props.onSectionSelected(this.props.section.id)
   }
 
-  render() {
-    const {label} = this.props
+  renderItem = () => {
+    const {section} = this.props
     return (
       <div className="section" onClick={this.sectionSelected}>
-        <Link to={`/${label}`}>
-          {label}
+        <Link to={`/${section.route}`}>
+        
+          {section.label}
         </Link>
+      </div>
+    )
+  }
+
+  renderSeparator = () => {
+    return (
+      <div> --- </div>
+    )
+  }
+  
+// { id: "home", label: "Home" }
+  render() {
+    const {section} = this.props
+    return (
+      <div>
+        {section.type ? this.renderSeparator() : this.renderItem()}
       </div>
     )
   }

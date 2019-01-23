@@ -10,11 +10,10 @@ export class NavBar extends Component {
   }
 
   render() {
-    const activeSection = this.props.navigation[this.props.activeSection]
     return (
       <div id="navbar-container">
-        <Sections navigation={this.props.navigation} onSectionSelected={this.props.sectionSelected} />
-        <Menu section={activeSection} />
+        <Sections onSectionSelected={this.props.sectionSelected} />
+        <Menu items={this.props.menu} />
       </div>
     )
   }

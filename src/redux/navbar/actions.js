@@ -21,6 +21,7 @@ export function navbarStructureReceived() {
 }
 
 function sectionChanged(section) {
+  console.log('dispatching this:', section)
   return {
     type: actionTypes.SECTION_CHANGED,
     selectedSection: section

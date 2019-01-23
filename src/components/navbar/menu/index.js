@@ -4,10 +4,11 @@ import { Header } from './header.js'
 
 import './menu.css'
 
-export const Menu = ({section}) => {
+export const Menu = ({items}) => {
+  console.log('menu', items)
   return (
     <div id="menu">
-      <Header title={section.label}/>
-      {section.menu.map((item, i) => <MenuItem key={i} label={item} />)}
+      {/*<Header title={args.section.label}/>*/}
+      {items.menu.map((item, i) => <MenuItem key={i} label={item} />)}
     </div>)
 }

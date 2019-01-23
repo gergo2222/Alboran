@@ -5,7 +5,7 @@ export const actionTypes = {
 }
 
 export const sectionLayout = {
-  Home: {
+  home: {
     label: "Home",
     menu: [
       "Home",
@@ -17,7 +17,7 @@ export const sectionLayout = {
       "Release Notes",
     ]
   },
-  Sales: {
+  sales: {
     label: "Sales",
     menu: [
       "Leads",
@@ -25,7 +25,7 @@ export const sectionLayout = {
       "Clients",
     ]
   },
-  Operations: {
+  operations: {
     label: "Operations",
     menu: [
       "Clients",
