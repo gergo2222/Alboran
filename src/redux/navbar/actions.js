@@ -1,4 +1,4 @@
-import { actionTypes, sectionLayout } from './constants'
+import { actionTypes, sectionLayout, menuLayout } from './constants'
 
 export function selectSection(section) {
   return {
@@ -16,12 +16,12 @@ export function navbarStructureRequested() {
 export function navbarStructureReceived() {
   return {
     type: actionTypes.GET_NAVBAR_STRUCTURE_COMPLETED,
-    structure: sectionLayout
+    sectionLayout,
+    menuLayout
   }
 }
 
 function sectionChanged(section) {
-  console.log('dispatching this:', section)
   return {
     type: actionTypes.SECTION_CHANGED,
     selectedSection: section

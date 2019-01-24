@@ -1,9 +1,8 @@
-import React from 'react'
+import { Home } from './home'
+import { HelpDesk } from './helpdesk'
 
-export const Home = () => {
-  return (
-    <div>
-      Hello
-    </div>
-  )
+
+export default {
+  Home,
+  HelpDesk
 }

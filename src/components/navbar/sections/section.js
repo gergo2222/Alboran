@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import './section.css'
-
 export class Section extends Component {
   constructor(props) {
     super(props)
@@ -15,29 +13,25 @@ export class Section extends Component {
   }
 
   renderItem = () => {
-    const {section} = this.props
+    const { section } = this.props
     return (
-      <div className="section" onClick={this.sectionSelected}>
-        <Link to={`/${section.route}`}>
-        
-          {section.label}
-        </Link>
-      </div>
+      <Link to={section.defaultItemUrl}>
+        <div className={`section ${section.icon}`} onClick={this.sectionSelected} />
+      </Link>
     )
   }
 
   renderSeparator = () => {
     return (
-      <div> --- </div>
+      <div className="separator"></div>
     )
   }
-  
-// { id: "home", label: "Home" }
+
   render() {
-    const {section} = this.props
+    const isDummy = this.props.section.id !== undefined
     return (
       <div>
-        {section.type ? this.renderSeparator() : this.renderItem()}
+        {isDummy ? this.renderItem() : this.renderSeparator()}
       </div>
     )
   }

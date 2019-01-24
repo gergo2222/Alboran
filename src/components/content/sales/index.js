@@ -1,5 +1,5 @@
-import React from 'react'
+import { Leads } from './leads'
 
-export const Sales = () => {
-  return (<span>General Kenobi!</span>)
+export default {
+  Leads
 }

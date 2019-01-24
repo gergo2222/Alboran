@@ -1,5 +1,5 @@
-import React from 'react'
+import { Invoices } from './invoices'
 
-export const Operations = () => {
-  return (<span>There</span>)
+export default {
+  Invoices
 }

@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import store from './configuration/store'
 import NavBar from './containers/navbar'
-// import { Content } from './scenes/content'
+import { Content } from './components/content'
 
 import * as serviceWorker from './serviceWorker';
 import './index.css'
@@ -16,7 +16,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <NavBar />
-        {/* <Content /> */}
+        <Content />
       </div>
     </BrowserRouter>
   </Provider>,

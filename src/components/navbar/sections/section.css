@@ -1,11 +1,11 @@
 .section {
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid lightblue;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #sections-wrapper {
@@ -18,4 +18,26 @@
   align-items: center;
   background-color: #008ddd;
   box-shadow: 3px 0px 3px 0 lightgrey;
+}
+
+.separator {
+  width: 70px;
+  background-color: #3da8e5;
+  height: 2px;
+}
+
+.logo {
+  background: url('./icons/Briefcase.ico') center no-repeat;
+}
+
+.home {
+  background: url('./icons/Home.ico') center no-repeat;
+}
+
+.sales {
+  background: url('./icons/Sales.ico') center no-repeat;
+}
+
+.operations {
+  background: url('./icons/Operations.ico') center no-repeat;
 }
