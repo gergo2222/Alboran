@@ -1,14 +1,17 @@
 export const actionTypes = {
   GET_NAVBAR_STRUCTURE_REQUESTED: 'GET_NAVBAR_STRUCTURE_REQUESTED',
   GET_NAVBAR_STRUCTURE_COMPLETED: 'GET_NAVBAR_STRUCTURE_COMPLETED',
+  MENU_ITEM_CHANGED: 'MENU_ITEM_CHANGED',
   SECTION_CHANGED: 'SECTION_CHANGED'
 }
 
 export const sectionLayout = [
-  { id: 'home', label: 'Home', defaultItemUrl: '/home', icon: 'home'},
+  { id: 'search', label: 'Search', defaultMenuItem: 'search', defaultItemUrl: '/search', icon: 'search'},
+  { id: 'create', label: 'Create', defaultMenuItem: 'create', defaultItemUrl: '/create', icon: 'create'},
   { id: undefined },
-  { id: 'sales', label: 'Sales', defaultItemUrl: '/leads', icon: 'sales' },
-  { id: 'operations', label: 'Operations', defaultItemUrl: '/invoices', icon: 'operations' },
+  { id: 'home', label: 'Home', defaultMenuItem: 'home', defaultItemUrl: '/home', icon: 'home'},
+  { id: 'sales', label: 'Sales', defaultMenuItem: 'leads', defaultItemUrl: '/leads', icon: 'sales' },
+  { id: 'operations', label: 'Operations', defaultMenuItem: 'invoices', defaultItemUrl: '/invoices', icon: 'operations' },
 ]
 
 export const menuLayout = {
@@ -41,5 +44,7 @@ export const menuLayout = {
     { id: 'paymentexports', label: 'Payment Exports', url: '/paymentexports'},
     { id: 'iob', label: 'IOB', url: '/iob'},
     { id: 'reports', label: 'Reports', url: '/reports'},
-  ]
+  ],
+  search: [],
+  create: []
 }

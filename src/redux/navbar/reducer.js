@@ -2,7 +2,7 @@ import { actionTypes } from './constants'
 
 const initialState = {
   sectionLayout: [
-    { id: 'home', label: 'Home', defaultItemUrl: '/home', icon: 'home' },
+    { id: 'home', label: 'Home', defaultMenuItem: 'home', defaultItemUrl: '/home', icon: 'home'},
   ],
   menuLayout: {
     home: [
@@ -29,6 +29,11 @@ export function navbar (state = initialState, action) {
       return {
         ...state,
         activeSection: action.selectedSection
+      }
+    case actionTypes.MENU_ITEM_CHANGED:
+      return {
+        ...state,
+        activeMenuItem: action.activeMenuItem
       }
     default:
       return initialState

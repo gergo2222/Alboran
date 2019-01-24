@@ -1,6 +1,6 @@
 #menu {
   display: flex;
-  width: 150px;
+  width: 170px;
   padding-left: 15px;
   padding-right: 15px;
   flex-wrap: wrap;
@@ -14,12 +14,21 @@
 }
 
 .menu-item {
-  padding-left: inherit;
-  padding-right: inherit;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
+.selected {
+  background-color: lightblue;
+}
+
 .menu-item:hover {
   background-color: lightgrey;
+}
+
+a {
+  text-decoration: none;
+  color: #575757;
 }

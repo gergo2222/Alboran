@@ -10,12 +10,19 @@ export class NavBar extends Component {
   }
 
   render() {
-    const { activeMenu, activeSection, sectionLayout, sectionSelected } = this.props
+    const {
+      activeMenu,
+      activeSection,
+      sectionLayout,
+      sectionSelected,
+      onMenuItemChange,
+      activeMenuItem
+    } = this.props
     const activeSectionHeader = sectionLayout.find(x => x.id === activeSection).label
     return (
       <div id="navbar-container">
-        <Sections onSectionSelected={sectionSelected} sections={sectionLayout} />
-        <Menu items={activeMenu} header={activeSectionHeader} />
+        <Sections onSectionSelected={sectionSelected} sections={sectionLayout} activeSection={activeSection} />
+        <Menu items={activeMenu} activeItem={activeMenuItem} header={activeSectionHeader} onMenuItemChange={onMenuItemChange} />
       </div>
     )
   }

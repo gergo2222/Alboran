@@ -28,8 +28,22 @@ function sectionChanged(section) {
   }
 }
 
+const menuItemChanged = (item) => {
+  return {
+    type: actionTypes.MENU_ITEM_CHANGED,
+    activeMenuItem: item
+  }
+}
+
 export function sectionSelected(section) {
   return function (dispatch) {
-    dispatch(sectionChanged(section))
+    dispatch(sectionChanged(section.id))
+    dispatch(menuItemChanged(section.defaultMenuItem))
+  }
+}
+
+export function onMenuItemChange(menuItem) {
+  return function (dispatch) {
+    dispatch(menuItemChanged(menuItem))
   }
 }

@@ -9,14 +9,17 @@ export class Section extends Component {
   }
 
   sectionSelected() {
-    this.props.onSectionSelected(this.props.section.id)
+    this.props.onSectionSelected(this.props.section)
   }
 
   renderItem = () => {
-    const { section } = this.props
+    const { section, active } = this.props
     return (
       <Link to={section.defaultItemUrl}>
-        <div className={`section ${section.icon}`} onClick={this.sectionSelected} />
+        <div className={`${section.icon}`} onClick={this.sectionSelected}>
+          <div className={`section ${active === section.id ? 'active' : ''}`} >
+          </div>
+        </div>
       </Link>
     )
   }
@@ -30,9 +33,7 @@ export class Section extends Component {
   render() {
     const isDummy = this.props.section.id !== undefined
     return (
-      <div>
-        {isDummy ? this.renderItem() : this.renderSeparator()}
-      </div>
+        isDummy ? this.renderItem() : this.renderSeparator()
     )
   }
 }

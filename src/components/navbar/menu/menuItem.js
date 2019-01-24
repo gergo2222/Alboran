@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const MenuItem = ({label, url}) => {
+export const MenuItem = ({item, onMenuItemChange, activeItem}) => {
+  const { url, label, id } = item
   return (
-    <div className="menu-item">
       <Link to={url}>
-        {label}
+        <div className={`menu-item ${activeItem === id ? 'selected' : ''}`} onClick={() => onMenuItemChange(id)}>
+          {label}
+        </div>
       </Link>
-    </div>
   )
 }
