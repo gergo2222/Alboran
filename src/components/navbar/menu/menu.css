@@ -16,16 +16,17 @@
 .menu-item {
   padding-left: 15px;
   padding-right: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 3px;
 }
 
 .selected {
-  background-color: lightblue;
+  background-color: #f2f2f2;
 }
 
 .menu-item:hover {
-  background-color: lightgrey;
+  background-color: lightgray;
 }
 
 a {

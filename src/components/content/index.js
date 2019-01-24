@@ -12,7 +12,8 @@ export const Content = () => {
       <Route path="/helpdesk" component={Home.HelpDesk}/>
 
       <Route path="/sales" component={Sales.Leads}/>
-      <Route path="/operations" component={Operations.Invoices}/>
+      <Route path="/invoices" component={Operations.Invoices}/>
+      <Route path="/projects" component={Operations.Projects}/>
     </div>
   )
 }

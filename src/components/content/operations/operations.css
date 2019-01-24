@@ -1,0 +1,29 @@
+h1 {
+  margin: 0px;
+}
+
+#projects-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.borderless {
+  border: none;
+}
+
+.button {
+  width: 150px;
+  height: 30px;
+  border: 3px solid #008ddd;
+  border-radius: 4px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.button>span {
+  padding-left: 13px;
+  color: #008ddd;
+}
