@@ -16,8 +16,8 @@ export class Section extends Component {
     const { section, active } = this.props
     return (
       <Link to={section.defaultItemUrl}>
-        <div className={`${section.icon}`} onClick={this.sectionSelected}>
-          <div className={`section ${active === section.id ? 'active' : ''}`} >
+        <div className={`${section.icon} ${active === section.id ? 'active' : ''}`} onClick={this.sectionSelected}>
+          <div className={`section`} >
           </div>
         </div>
       </Link>

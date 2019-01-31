@@ -13,7 +13,7 @@ const initialState = {
   activeMenuItem: 'home'
 }
 
-export function navbar (state = initialState, action) {
+export const navbarReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_NAVBAR_STRUCTURE_REQUESTED:
       return {

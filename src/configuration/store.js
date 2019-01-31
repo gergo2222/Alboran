@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
-import * as navbarReducer from '../redux/navbar/reducer'
+import { navbarReducer } from '../redux/navbar/reducer'
+import { projectsReducer } from '../redux/projects/reducer'
 
-const combinedReducer = combineReducers(
-  navbarReducer
-)
+const combinedReducer = combineReducers({
+  navbar: navbarReducer,
+  projects: projectsReducer
+})
 
 export default createStore(
   combinedReducer,

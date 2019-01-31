@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import './content.css'
 import Home from './home'
 import Sales from './sales'
-import Operations from './operations'
+import Projects from '../../containers/projects'
 
 export const Content = () => {
   return (
@@ -12,8 +12,7 @@ export const Content = () => {
       <Route path="/helpdesk" component={Home.HelpDesk}/>
 
       <Route path="/sales" component={Sales.Leads}/>
-      <Route path="/invoices" component={Operations.Invoices}/>
-      <Route path="/projects" component={Operations.Projects}/>
+      <Route path="/projects" component={Projects}/>
     </div>
   )
 }

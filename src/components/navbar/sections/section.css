@@ -28,7 +28,7 @@
 
 .active {
   background-color: #51c9ff;
-  opacity: 0.4;
+  border-radius: 5px;
 }
 
 .logo {

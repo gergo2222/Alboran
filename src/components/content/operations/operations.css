@@ -6,7 +6,7 @@ h1 {
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: baseline;
 }
 
 .borderless {
@@ -26,4 +26,12 @@ h1 {
 .button>span {
   padding-left: 13px;
   color: #008ddd;
+}
+
+table {
+  width: 100%;
+}
+
+select {
+  border: none;
 }
