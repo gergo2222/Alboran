@@ -36,6 +36,6 @@ export const navbarReducer = (state = initialState, action) => {
         activeMenuItem: action.activeMenuItem
       }
     default:
-      return initialState
+      return state
   }
 }

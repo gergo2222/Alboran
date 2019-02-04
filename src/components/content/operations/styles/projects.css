@@ -1,0 +1,14 @@
+#projects-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+th {
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding-bottom: 10px;
+}

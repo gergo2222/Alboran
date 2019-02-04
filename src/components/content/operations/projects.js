@@ -3,14 +3,25 @@ import { Button } from '../../button'
 import { Select } from '../../select'
 
 import './operations.css'
+import './styles/projects.css'
 
 export class Projects extends Component {
   componentDidMount() {
     this.props.getProjects()
   }
 
+  renderProjectRow({project, client, office, projectId}, i) {
+    return (
+      <tr key={i}>
+        <td><input type="checkbox" />{project}</td>
+        <td>{client}</td>
+        <td>{office}</td>
+        <td>{projectId}</td>
+      </tr>
+    )
+  }
+
   render() {
-    console.log('Projects: rendering')
     return (
       <div>
         <div id="projects-header">
@@ -25,33 +36,15 @@ export class Projects extends Component {
         <table>
           <thead>
             <tr>
-              <th>Client</th>
               <th>Project</th>
+              <th>Client</th>
               <th>Office</th>
               <th>Project ID</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Client</td>
-              <td>Project</td>
-              <td>Office</td>
-              <td>Project ID</td>
-            </tr>
-            <tr>
-              <td>Client</td>
-              <td>Project</td>
-              <td>Office</td>
-              <td>Project ID</td>
-            </tr>
-            <tr>
-              <td>Client</td>
-              <td>Project</td>
-              <td>Office</td>
-              <td>Project ID</td>
-            </tr>
+            { this.props.projects.map((item, i) => this.renderProjectRow(item, i)) }
           </tbody>
-          {}
         </table>
       </div>
     )

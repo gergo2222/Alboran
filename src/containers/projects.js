@@ -6,9 +6,8 @@ import {
 } from '../redux/projects/actions'
 
 const mapStateToProps = ({ projects }) => {
-  console.log('mapstatetoprops', projects)
   return {
-    
+    projects: projects.items
   }
 }
 
