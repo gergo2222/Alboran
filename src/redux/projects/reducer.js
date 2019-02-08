@@ -1,7 +1,13 @@
 import { actionTypes } from './constants'
 
 const initialState = {
-  items: []
+  items: [],
+  pagination: {
+    page: 1,
+    totalPages: 1,
+    totalRecords: 0,
+    recordsOnPage: 20
+  }
 }
 
 export const projectsReducer = (state = initialState, action) => {

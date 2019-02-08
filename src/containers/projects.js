@@ -7,13 +7,14 @@ import {
 
 const mapStateToProps = ({ projects }) => {
   return {
-    projects: projects.items
+    projects: projects.items,
+    pagination: projects.pagination
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getProjects: () => dispatch(getProjects()),
+    getProjects: (pagination) => dispatch(getProjects(pagination)),
   }
 }
 

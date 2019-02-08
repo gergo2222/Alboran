@@ -10,13 +10,17 @@ export class Projects extends Component {
     this.props.getProjects()
   }
 
-  renderProjectRow({project, client, office, projectId}, i) {
+  renderProjectRow({project, client, office, projectId, startOn, endOn, serviceType, manager}, i) {
     return (
       <tr key={i}>
         <td><input type="checkbox" />{project}</td>
         <td>{client}</td>
         <td>{office}</td>
         <td>{projectId}</td>
+        <td>{startOn}</td>
+        <td>{endOn}</td>
+        <td>{serviceType}</td>
+        <td>{manager}</td>
       </tr>
     )
   }
@@ -33,6 +37,7 @@ export class Projects extends Component {
           <input className="borderless" type="text" placeholder="Search..." />
           <Button />
         </div>
+        { this.props.pagination.recordsOnPage }
         <table>
           <thead>
             <tr>
@@ -40,6 +45,10 @@ export class Projects extends Component {
               <th>Client</th>
               <th>Office</th>
               <th>Project ID</th>
+              <th>Start On</th>
+              <th>End On</th>
+              <th>Service</th>
+              <th>Primary PM</th>
             </tr>
           </thead>
           <tbody>
