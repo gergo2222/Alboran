@@ -1,5 +1,7 @@
-import Button from './button'
+import { Button } from './button'
+import { Pagination } from './pagination'
 
-export default {
-  Button
+export {
+  Button,
+  Pagination
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from '../../button'
+import { Button, Pagination } from '../../common'
 import { Select } from '../../select'
 
 import './operations.css'
@@ -7,7 +7,17 @@ import './styles/projects.css'
 
 export class Projects extends Component {
   componentDidMount() {
-    this.props.getProjects()
+    this.props.getProjects(this.props.pagination)
+  }
+
+  onNextPageClick = () => {
+    this.props.onNextPage()
+    this.props.getProjects(this.props.pagination)
+  }
+
+  onPrevPageClick = () => {
+    this.props.onPrevPage()
+    this.props.getProjects(this.props.pagination)
   }
 
   renderProjectRow({project, client, office, projectId, startOn, endOn, serviceType, manager}, i) {
@@ -26,6 +36,7 @@ export class Projects extends Component {
   }
 
   render() {
+    const { pagination } = this.props
     return (
       <div>
         <div id="projects-header">
@@ -37,7 +48,6 @@ export class Projects extends Component {
           <input className="borderless" type="text" placeholder="Search..." />
           <Button />
         </div>
-        { this.props.pagination.recordsOnPage }
         <table>
           <thead>
             <tr>
@@ -55,6 +65,12 @@ export class Projects extends Component {
             { this.props.projects.map((item, i) => this.renderProjectRow(item, i)) }
           </tbody>
         </table>
+        <Pagination
+          total={pagination.totalRecords}
+          perPage={pagination.recordsOnPage}
+          currentPage={pagination.page}
+          onNext={this.onNextPageClick}
+          onPrev={this.onPrevPageClick}/>
       </div>
     )
   }

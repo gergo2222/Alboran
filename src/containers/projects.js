@@ -2,7 +2,9 @@ import { connect } from 'react-redux'
 import Operations from '../components/content/operations'
 
 import {
-  getProjects
+  getProjects,
+  onNextPage,
+  onPrevPage
 } from '../redux/projects/actions'
 
 const mapStateToProps = ({ projects }) => {
@@ -15,6 +17,8 @@ const mapStateToProps = ({ projects }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getProjects: (pagination) => dispatch(getProjects(pagination)),
+    onNextPage: () => dispatch(onNextPage()),
+    onPrevPage: () => dispatch(onPrevPage()),
   }
 }
 

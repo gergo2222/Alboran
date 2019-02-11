@@ -11,11 +11,22 @@ const projectsReceived = (projects) => {
     payload: projects
   }
 }
+const nextPage = () => {
+  return {
+    type: actionTypes.projectsNextPage
+  }
+}
+const prevPage = () => {
+  return {
+    type: actionTypes.projectsPrevPage
+  }
+}
 
-export function getProjects() {
+export function getProjects(pagination) {
   return function (dispatch) {
     dispatch(projectsRequested())
 
+    console.log('trying to get data from api, pagination:', pagination)
     let projectList = []
     for (let index = 1; index < 100; index++) {
       projectList.push({
@@ -30,6 +41,31 @@ export function getProjects() {
       })
     }
 
-    dispatch(projectsReceived(projectList))
+    const {
+      page,
+      recordsOnPage
+    } = pagination
+
+    const response = {
+      items: projectList.slice((page - 1) * recordsOnPage, page * recordsOnPage),
+      total: projectList.length,
+      totalPages: projectList.length % recordsOnPage === 0 ? projectList.length / recordsOnPage : Math.floor(projectList.length / recordsOnPage + 1)
+    }
+
+    console.log('api return', response, page, recordsOnPage)
+
+    dispatch(projectsReceived(response))
+  }
+}
+
+export function onNextPage() {
+  return function(dispatch) {
+    dispatch(nextPage())
+  }
+}
+
+export function onPrevPage() {
+  return function(dispatch) {
+    dispatch(prevPage())
   }
 }
