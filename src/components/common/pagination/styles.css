@@ -1,10 +1,12 @@
 .table-pagination {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 35%;
+  align-items: center;
 }
 
 .clickable {
   cursor: pointer;
+  font-size: xx-large;
 }
