@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Pagination } from '../../common'
-import { Select } from '../../select'
+import { Button, Pagination, Select } from '../../common'
 
 import './operations.css'
 import './styles/projects.css'
