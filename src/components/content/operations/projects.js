@@ -20,6 +20,11 @@ export class Projects extends Component {
     this.props.getProjects(this.props.pagination)
   }
 
+  onSearch = (e) => {
+    this.props.onSearch(e.target.value)
+    Promise.resolve().then(() => this.props.getProjects(this.props.pagination))
+  }
+
   renderProjectRow({project, client, office, projectId, startOn, endOn, serviceType, manager}, i) {
     return (
       <tr key={i}>
@@ -45,7 +50,7 @@ export class Projects extends Component {
             <span>View:</span>
             <Select />
           </div>
-          <input className="borderless" type="text" placeholder="Search..." />
+          <input className="borderless" type="text" placeholder="Search..." onChange={this.onSearch.bind(this)} />
           <Button />
         </div>
         <table>

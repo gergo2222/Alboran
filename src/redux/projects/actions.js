@@ -21,12 +21,17 @@ const prevPage = () => {
     type: actionTypes.projectsPrevPage
   }
 }
+const filterBy = (query) => {
+  return {
+    type: actionTypes.projectsFilter,
+    payload: query
+  }
+}
 
 export function getProjects(pagination) {
   return function (dispatch) {
     dispatch(projectsRequested())
 
-    console.log('trying to get data from api, pagination:', pagination)
     let projectList = []
     for (let index = 1; index < 100; index++) {
       projectList.push({
@@ -41,6 +46,8 @@ export function getProjects(pagination) {
       })
     }
 
+    projectList = pagination.filter ? projectList.filter(x => x.project.includes(pagination.filter)) : projectList
+
     const {
       page,
       recordsOnPage
@@ -51,8 +58,6 @@ export function getProjects(pagination) {
       total: projectList.length,
       totalPages: projectList.length % recordsOnPage === 0 ? projectList.length / recordsOnPage : Math.floor(projectList.length / recordsOnPage + 1)
     }
-
-    console.log('api return', response, page, recordsOnPage)
 
     dispatch(projectsReceived(response))
   }
@@ -67,5 +72,11 @@ export function onNextPage() {
 export function onPrevPage() {
   return function(dispatch) {
     dispatch(prevPage())
+  }
+}
+
+export function onProjectSearch(query) {
+  return function(dispatch) {
+    dispatch(filterBy(query))
   }
 }

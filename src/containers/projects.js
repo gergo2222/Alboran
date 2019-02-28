@@ -4,7 +4,8 @@ import Operations from '../components/content/operations'
 import {
   getProjects,
   onNextPage,
-  onPrevPage
+  onPrevPage,
+  onProjectSearch
 } from '../redux/projects/actions'
 
 const mapStateToProps = ({ projects }) => {
@@ -19,6 +20,7 @@ const mapDispatchToProps = (dispatch) => {
     getProjects: (pagination) => dispatch(getProjects(pagination)),
     onNextPage: () => dispatch(onNextPage()),
     onPrevPage: () => dispatch(onPrevPage()),
+    onSearch: (query) => dispatch(onProjectSearch(query))
   }
 }
 

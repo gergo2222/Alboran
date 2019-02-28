@@ -6,7 +6,8 @@ const initialState = {
     page: 1,
     totalPages: 1,
     totalRecords: 0,
-    recordsOnPage: 20
+    recordsOnPage: 20,
+    filter: undefined
   }
 }
 
@@ -18,32 +19,45 @@ export const projectsReducer = (state = initialState, action) => {
         ...state
       }
     case actionTypes.projectsReceived:
-      const totalRecords = payload.total
-      const totalPages = payload.totalPages
       return {
         ...state,
         items: payload.items,
         pagination: {
-          page: state.pagination.page,
-          totalPages: totalPages,
-          totalRecords: totalRecords,
-          recordsOnPage: state.pagination.recordsOnPage
+          ...state.pagination,
+          totalPages: payload.totalPages,
+          totalRecords: payload.total,
         }
       }
     case actionTypes.projectsNextPage:
       if (state.pagination.page === state.pagination.totalPages)
         return state
 
-      let incState = Object.assign({}, state)
-      incState.pagination.page += 1
-      return incState
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          page: state.pagination.page + 1
+        }
+      }
     case actionTypes.projectsPrevPage:
       if (state.pagination.page === 1)
         return state
 
-      let decState = Object.assign({}, state)
-      decState.pagination.page -= 1
-      return decState
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          page: state.pagination - 1
+        }
+      }
+    case actionTypes.projectsFilter:
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          filter: payload
+        }
+      }
     default:
       return state
   }
