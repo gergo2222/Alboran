@@ -6,22 +6,22 @@ import './styles/projects.css'
 
 export class Projects extends Component {
   componentDidMount() {
-    this.props.getProjects(this.props.pagination)
+    this.props.getProjects()
   }
 
   onNextPageClick = () => {
     this.props.onNextPage()
-    this.props.getProjects(this.props.pagination)
+    this.props.getProjects()
   }
 
   onPrevPageClick = () => {
     this.props.onPrevPage()
-    this.props.getProjects(this.props.pagination)
+    this.props.getProjects()
   }
 
   onSearch = (e) => {
     this.props.onSearch(e.target.value)
-    Promise.resolve().then(() => this.props.getProjects(this.props.pagination))
+    this.props.getProjects()
   }
 
   renderProjectRow({project, client, office, projectId, startOn, endOn, serviceType, manager}, i) {

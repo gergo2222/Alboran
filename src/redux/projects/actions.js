@@ -28,9 +28,11 @@ const filterBy = (query) => {
   }
 }
 
-export function getProjects(pagination) {
-  return function (dispatch) {
+export function getProjects() {
+  return function (dispatch, getState) {
     dispatch(projectsRequested())
+
+    const { pagination } = getState().projects
 
     let projectList = []
     for (let index = 1; index < 100; index++) {
@@ -78,5 +80,7 @@ export function onPrevPage() {
 export function onProjectSearch(query) {
   return function(dispatch) {
     dispatch(filterBy(query))
+
+    dispatch(getProjects())
   }
 }

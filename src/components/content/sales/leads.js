@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import { Table } from '../../common'
 
+
 export class Leads extends Component {
-
-  onNextPageClick() {
-
-  }
-
-  onPrevPageClick() {
-    
+  componentDidMount() {
+    this.props.getLeads()
   }
 
   render() {
@@ -26,28 +22,16 @@ export class Leads extends Component {
         ]
       },
       body: {
-        items: [
-          { type: "Industry", id: 14, status: "Open", state: "Open", companyName: undefined, office: "Belgium", callback: "2019-01-01", assignedTo: "John Wick" },
-          { type: "Industry", id: 14, status: "Open", state: "Open", companyName: undefined, office: "Belgium", callback: "2019-01-01", assignedTo: "John Wick" },
-          { type: "Industry", id: 14, status: "Open", state: "Open", companyName: undefined, office: "Belgium", callback: "2019-01-01", assignedTo: "John Wick" },
-          { type: "Industry", id: 14, status: "Open", state: "Open", companyName: undefined, office: "Belgium", callback: "2019-01-01", assignedTo: "John Wick" },
-        ]
+        items: this.props.leads
       }
     }
-  
-    const pagination = {
-      page: 1,
-      totalPages: 1,
-      totalRecords: 0,
-      recordsOnPage: 20,
-      filter: undefined,
-      onNextPageClick: this.onNextPageClick,
-      onPrevPageClick: this.onPrevPageClick
-    }
-  
+
     return (
       <div>
-        <Table caption="Leads" structure={tableStructure} pagination={pagination} />
+        <Table
+          caption="Leads"
+          structure={tableStructure}
+          pagination={this.props.pagination} onNext={this.props.nextPage} onPrev={this.props.prevPage} />
       </div>
     )
   }

@@ -47,7 +47,7 @@ export const projectsReducer = (state = initialState, action) => {
         ...state,
         pagination: {
           ...state.pagination,
-          page: state.pagination - 1
+          page: state.pagination.page - 1
         }
       }
     case actionTypes.projectsFilter:

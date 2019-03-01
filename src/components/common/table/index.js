@@ -7,9 +7,10 @@ import {
 
 import './styles.css'
 
-export const Table = ({caption, structure, pagination, onNextPageClick, onPrevPageClick}) => {
+export const Table = ({caption, structure, pagination, onNext, onPrev}) => {
   const { columns } = structure.header
   const { items: data } = structure.body
+
   return (
     <div>
       <div id="table-control-panel">
@@ -41,8 +42,8 @@ export const Table = ({caption, structure, pagination, onNextPageClick, onPrevPa
         total={pagination.totalRecords}
         perPage={pagination.recordsOnPage}
         currentPage={pagination.page}
-        onNext={onNextPageClick}
-        onPrev={onPrevPageClick}/>
+        onNext={onNext}
+        onPrev={onPrev}/>
     </div>
   )
 }
