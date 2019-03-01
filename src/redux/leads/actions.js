@@ -29,8 +29,14 @@ export const onPrevPage = () => (dispatch, getState) => {
   dispatch(leadsReceived(leads(pagination)))
 }
 
-export const onSearch = () => {
+export const onSearch = ({ target: { value: filter } }) => (dispatch, getState) => {
+  dispatch({
+    type: actionTypes.filter,
+    payload: filter
+  })
 
+  const { pagination } = getState().leads
+  dispatch(leadsReceived(leads(pagination)))
 }
 
 const leadsReceived = (data) => {

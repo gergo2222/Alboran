@@ -7,19 +7,19 @@ import {
 
 import './styles.css'
 
-export const Table = ({caption, structure, pagination, onNext, onPrev}) => {
+export const Table = ({caption, structure, pagination, onNext, onPrev, onSearch}) => {
   const { columns } = structure.header
   const { items: data } = structure.body
 
   return (
     <div>
-      <div id="table-control-panel">
+      <div className="table-control-panel">
         <h1>{caption}</h1>
         <div>
           <span>View:</span>
           <Select />
         </div>
-        {/* <input className="borderless" type="text" placeholder="Search..." onChange={this.onSearch.bind(this)} /> */}
+        <input className="borderless" type="text" placeholder="Search..." onChange={onSearch} />
         <Button />
       </div>
       <div className="table-wrapper">

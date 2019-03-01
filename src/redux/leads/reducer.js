@@ -48,6 +48,14 @@ export const leadsReducer = (state = initialState, action) => {
             page: state.pagination.page - 1
           }
         }
+    case actionTypes.filter:
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          filter: payload
+        }
+      }
     default:
       return state
   }

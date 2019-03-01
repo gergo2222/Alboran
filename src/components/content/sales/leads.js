@@ -31,7 +31,7 @@ export class Leads extends Component {
         <Table
           caption="Leads"
           structure={tableStructure}
-          pagination={this.props.pagination} onNext={this.props.nextPage} onPrev={this.props.prevPage} />
+          pagination={this.props.pagination} onNext={this.props.nextPage} onPrev={this.props.prevPage} onSearch={this.props.onSearch} />
       </div>
     )
   }
