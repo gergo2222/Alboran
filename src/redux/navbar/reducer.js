@@ -30,7 +30,7 @@ export const navbarReducer = (state = initialState, action) => {
         ...state,
         activeSection: action.selectedSection
       }
-    case actionTypes.MENU_ITEM_CHANGED:
+    case actionTypes.MENU_ITEM_CHANGE_FULFILLED:
       return {
         ...state,
         activeMenuItem: action.activeMenuItem

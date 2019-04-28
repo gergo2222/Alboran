@@ -1,4 +1,5 @@
 import { actionTypes, sectionLayout, menuLayout } from './constants'
+import { put, call } from 'redux-saga/effects'
 
 export function selectSection(section) {
   return {
@@ -21,29 +22,25 @@ export function navbarStructureReceived() {
   }
 }
 
-function sectionChanged(section) {
-  return {
+export function *sectionChanged({section}) {
+  yield put({
     type: actionTypes.SECTION_CHANGED,
-    selectedSection: section
-  }
+    selectedSection: section.id
+  })
+
+  yield call(menuItemChanged, {item: section.defaultMenuItem})
 }
 
-const menuItemChanged = (item) => {
-  return {
+export function *menuItemChanged({item}) {
+  yield put({
     type: actionTypes.MENU_ITEM_CHANGED,
     activeMenuItem: item
-  }
+  })
 }
 
-export function sectionSelected(section) {
-  return function (dispatch) {
-    dispatch(sectionChanged(section.id))
-    dispatch(menuItemChanged(section.defaultMenuItem))
-  }
-}
-
-export function onMenuItemChange(menuItem) {
-  return function (dispatch) {
-    dispatch(menuItemChanged(menuItem))
-  }
-}
+// export function sectionSelected(section) {
+//   return function (dispatch) {
+//     dispatch(sectionChanged(section.id))
+//     dispatch(menuItemChanged(section.defaultMenuItem))
+//   }
+// }
