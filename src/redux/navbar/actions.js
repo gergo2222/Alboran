@@ -8,18 +8,12 @@ export function selectSection(section) {
   }
 }
 
-export function navbarStructureRequested() {
-  return {
-    type: actionTypes.GET_NAVBAR_STRUCTURE_REQUESTED
-  }
-}
-
-export function navbarStructureReceived() {
-  return {
+export function *navbarStructureReceived() {
+  yield put({
     type: actionTypes.GET_NAVBAR_STRUCTURE_COMPLETED,
     sectionLayout,
     menuLayout
-  }
+  })
 }
 
 export function *sectionChanged({section}) {

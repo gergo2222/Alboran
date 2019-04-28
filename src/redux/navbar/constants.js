@@ -7,6 +7,7 @@ export const actionTypes = {
 export const sagaActions = {
   SAGA_MENU_ITEM_CHANGED: 'SAGA_MENU_ITEM_CHANGED',
   SAGA_SECTION_CHANGED: 'SAGA_SECTION_CHANGED',
+  SAGA_GET_NAVBAR_STRUCTURE: 'SAGA_GET_NAVBAR_STRUCTURE',
 }
 
 export const sectionLayout = [

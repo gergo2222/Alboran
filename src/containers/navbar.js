@@ -1,10 +1,6 @@
 import { connect } from 'react-redux'
 import { NavBar } from '../components/navbar'
 import {
-  navbarStructureReceived,
-} from '../redux/navbar/actions'
-import {
-  // actionTypes,
   sagaActions
 } from '../redux/navbar/constants'
 
@@ -20,7 +16,9 @@ const mapStateToProps = ({navbar}) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getNavBarStructure: () => dispatch(navbarStructureReceived()),
+    getNavBarStructure: () => dispatch({
+      type: sagaActions.SAGA_GET_NAVBAR_STRUCTURE
+    }),
     sectionSelected: (section) => dispatch({
       type: sagaActions.SAGA_SECTION_CHANGED,
       section: section
