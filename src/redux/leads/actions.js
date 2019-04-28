@@ -8,26 +8,14 @@ export function *getLeads() {
   yield put(leadsReceived(data))
 }
 
-export const onNextPage = () => (dispatch, getState) => {
-  dispatch({
-    type: actionTypes.nextPage
-  })
-
-  // todo actual call to API
-  // avoid unnecessary api calls when it's first or last page
-  const { pagination } = getState().leads
-  dispatch(leadsReceived(leads(pagination)))
+export function *nextPage() {
+  yield put({ type: actionTypes.LEADS_NEXT_PAGE })
+  yield call(getLeads)
 }
 
-export const onPrevPage = () => (dispatch, getState) => {
-  dispatch({
-    type: actionTypes.prevPage
-  })
-
-  // todo actual call to API
-  // avoid unnecessary api calls when it's first or last page
-  const { pagination } = getState().leads
-  dispatch(leadsReceived(leads(pagination)))
+export function *prevPage() {
+  yield put({ type: actionTypes.LEADS_PREV_PAGE })
+  yield call(getLeads)
 }
 
 export const onSearch = ({ target: { value: filter } }) => (dispatch, getState) => {

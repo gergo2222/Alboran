@@ -8,9 +8,12 @@ import {
 } from '../redux/navbar/actions'
 
 import {
-  getLeads
+  getLeads,
+  nextPage,
+  prevPage,
 } from '../redux/leads/actions'
 
+// Navbar
 function *watchMenuItemChange() {
   yield takeEvery(navbarActions.SAGA_MENU_ITEM_CHANGED, menuItemChanged)
 }
@@ -23,8 +26,17 @@ function *watchNavbarStructure() {
   yield takeLatest(navbarActions.SAGA_GET_NAVBAR_STRUCTURE, navbarStructureReceived)
 }
 
+// Leads
 function *watchLeadsRequested() {
   yield takeLatest(leadsActions.SAGA_LEADS_REQUESTED, getLeads)
+}
+
+function *watchLeadsNextPage() {
+  yield takeLatest(leadsActions.SAGA_NEXT_PAGE, nextPage)
+}
+
+function *watchLeadsPrevPage() {
+  yield takeLatest(leadsActions.SAGA_PREV_PAGE, prevPage)
 }
 
 export default function *rootSaga() {
@@ -33,6 +45,8 @@ export default function *rootSaga() {
     watchSectionChange(),
     watchNavbarStructure(),
     watchLeadsRequested(),
+    watchLeadsNextPage(),
+    watchLeadsPrevPage(),
   ])
 }
 

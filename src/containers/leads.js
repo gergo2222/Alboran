@@ -13,8 +13,8 @@ const mapStateToProps = ({ leads }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getLeads: () => dispatch({ type: sagaActions.SAGA_LEADS_REQUESTED }),
-    // nextPage: () => dispatch(onNextPage()),
-    // prevPage: () => dispatch(onPrevPage()),
+    nextPage: () => dispatch({ type: sagaActions.SAGA_NEXT_PAGE }),
+    prevPage: () => dispatch({ type: sagaActions.SAGA_PREV_PAGE }),
     // onSearch: (query) => dispatch(onSearch(query))
   }
 }

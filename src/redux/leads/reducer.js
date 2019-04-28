@@ -28,7 +28,7 @@ export const leadsReducer = (state = initialState, action) => {
           totalRecords: payload.pagination.totalRecords,
         }
       }
-    case actionTypes.nextPage:
+    case actionTypes.LEADS_NEXT_PAGE:
       return state.pagination.page === state.pagination.totalPages
         ? state
         : {
@@ -38,7 +38,7 @@ export const leadsReducer = (state = initialState, action) => {
             page: state.pagination.page + 1
           }
         }
-    case actionTypes.prevPage:
+    case actionTypes.LEADS_PREV_PAGE:
       return state.pagination.page === 1
         ? state
         : {
