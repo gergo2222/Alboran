@@ -14,10 +14,6 @@ const initialState = {
 export const leadsReducer = (state = initialState, action) => {
   const { payload } = action
   switch (action.type) {
-    case actionTypes.request:
-      return {
-        ...state
-      }
     case actionTypes.LEADS_RECEIVED:
       return {
         ...state,
@@ -48,7 +44,7 @@ export const leadsReducer = (state = initialState, action) => {
             page: state.pagination.page - 1
           }
         }
-    case actionTypes.filter:
+    case actionTypes.LEADS_FILTER:
       return {
         ...state,
         pagination: {

@@ -12,10 +12,10 @@ const mapStateToProps = ({ leads }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getLeads: () => dispatch({ type: sagaActions.SAGA_LEADS_REQUESTED }),
-    nextPage: () => dispatch({ type: sagaActions.SAGA_NEXT_PAGE }),
-    prevPage: () => dispatch({ type: sagaActions.SAGA_PREV_PAGE }),
-    // onSearch: (query) => dispatch(onSearch(query))
+    getLeads: () => dispatch({ type: sagaActions.LEADS_REQUESTED }),
+    nextPage: () => dispatch({ type: sagaActions.LEADS_NEXT_PAGE }),
+    prevPage: () => dispatch({ type: sagaActions.LEADS_PREV_PAGE }),
+    onSearch: ({ target: { value: filter }}) => dispatch({ type: sagaActions.LEADS_SEARCH, filter })
   }
 }
 

@@ -11,6 +11,7 @@ import {
   getLeads,
   nextPage,
   prevPage,
+  search,
 } from '../redux/leads/actions'
 
 // Navbar
@@ -28,15 +29,19 @@ function *watchNavbarStructure() {
 
 // Leads
 function *watchLeadsRequested() {
-  yield takeLatest(leadsActions.SAGA_LEADS_REQUESTED, getLeads)
+  yield takeLatest(leadsActions.LEADS_REQUESTED, getLeads)
 }
 
 function *watchLeadsNextPage() {
-  yield takeLatest(leadsActions.SAGA_NEXT_PAGE, nextPage)
+  yield takeLatest(leadsActions.LEADS_NEXT_PAGE, nextPage)
 }
 
 function *watchLeadsPrevPage() {
-  yield takeLatest(leadsActions.SAGA_PREV_PAGE, prevPage)
+  yield takeLatest(leadsActions.LEADS_PREV_PAGE, prevPage)
+}
+
+function *watchLeadsSearch() {
+  yield takeLatest(leadsActions.LEADS_SEARCH, search)
 }
 
 export default function *rootSaga() {
@@ -47,6 +52,7 @@ export default function *rootSaga() {
     watchLeadsRequested(),
     watchLeadsNextPage(),
     watchLeadsPrevPage(),
+    watchLeadsSearch(),
   ])
 }
 

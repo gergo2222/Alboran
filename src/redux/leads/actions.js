@@ -18,14 +18,9 @@ export function *prevPage() {
   yield call(getLeads)
 }
 
-export const onSearch = ({ target: { value: filter } }) => (dispatch, getState) => {
-  dispatch({
-    type: actionTypes.filter,
-    payload: filter
-  })
-
-  const { pagination } = getState().leads
-  dispatch(leadsReceived(leads(pagination)))
+export function *search({ filter }) {
+  yield put({ type: actionTypes.LEADS_FILTER, payload: filter })
+  yield call(getLeads)
 }
 
 const leadsReceived = (data) => {
