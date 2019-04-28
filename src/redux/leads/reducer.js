@@ -18,7 +18,7 @@ export const leadsReducer = (state = initialState, action) => {
       return {
         ...state
       }
-    case actionTypes.received:
+    case actionTypes.LEADS_RECEIVED:
       return {
         ...state,
         items: payload.items,

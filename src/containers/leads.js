@@ -1,12 +1,7 @@
 import { connect } from 'react-redux'
 import Sales from '../components/content/sales'
 
-import {
-  getLeads,
-  onNextPage,
-  onPrevPage,
-  onSearch
-} from '../redux/leads/actions'
+import { sagaActions } from '../redux/leads/constants';
 
 const mapStateToProps = ({ leads }) => {
   return {
@@ -17,10 +12,10 @@ const mapStateToProps = ({ leads }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getLeads: () => dispatch(getLeads()),
-    nextPage: () => dispatch(onNextPage()),
-    prevPage: () => dispatch(onPrevPage()),
-    onSearch: (query) => dispatch(onSearch(query))
+    getLeads: () => dispatch({ type: sagaActions.SAGA_LEADS_REQUESTED }),
+    // nextPage: () => dispatch(onNextPage()),
+    // prevPage: () => dispatch(onPrevPage()),
+    // onSearch: (query) => dispatch(onSearch(query))
   }
 }
 

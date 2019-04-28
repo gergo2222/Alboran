@@ -1,10 +1,11 @@
+import { call, select, put } from 'redux-saga/effects'
 import { actionTypes } from './constants'
 import { leads } from '../../utils/api'
 
-export const getLeads = () => (dispatch, getState) => {
-  // todo actual call to API
-  const { pagination } = getState().leads
-  dispatch(leadsReceived(leads(pagination)))
+export function *getLeads() {
+  const { pagination } = yield select((x) => x.leads)
+  const data = yield call(leads, pagination)
+  yield put(leadsReceived(data))
 }
 
 export const onNextPage = () => (dispatch, getState) => {
@@ -41,7 +42,7 @@ export const onSearch = ({ target: { value: filter } }) => (dispatch, getState) 
 
 const leadsReceived = (data) => {
   return {
-    type: actionTypes.received,
+    type: actionTypes.LEADS_RECEIVED,
     payload: data
   }
 }
