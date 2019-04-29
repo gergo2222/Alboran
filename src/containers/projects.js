@@ -2,11 +2,11 @@ import { connect } from 'react-redux'
 import Operations from '../components/content/operations'
 
 import {
-  getProjects,
   onNextPage,
   onPrevPage,
-  onProjectSearch
 } from '../redux/projects/actions'
+
+import { sagaActions } from '../redux/projects/constants'
 
 const mapStateToProps = ({ projects }) => {
   return {
@@ -17,10 +17,10 @@ const mapStateToProps = ({ projects }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getProjects: (pagination) => dispatch(getProjects(pagination)),
-    onNextPage: () => dispatch(onNextPage()),
-    onPrevPage: () => dispatch(onPrevPage()),
-    onSearch: (query) => dispatch(onProjectSearch(query))
+    getProjects: (pagination) => dispatch({ type: sagaActions.PROJECTS_REQUESTED, pagination }),
+    onNextPage: () => dispatch({ type: sagaActions.SAGA_PROJECTS_NEXT_PAGE }),
+    onPrevPage: () => dispatch({ type: sagaActions.SAGA_PROJECTS_PREV_PAGE }),
+    onSearch: (filter) => dispatch({ type: sagaActions.SEARCH_PROJECTS, filter }),
   }
 }
 

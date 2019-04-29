@@ -1,6 +1,7 @@
 import { takeEvery, takeLatest, all } from 'redux-saga/effects'
 import { sagaActions as navbarActions } from '../redux/navbar/constants'
-import { sagaActions as leadsActions } from '../redux/leads/constants'
+import { sagaActions as leadActions } from '../redux/leads/constants'
+import { sagaActions as projectActions } from '../redux/projects/constants'
 import {
   menuItemChanged,
   sectionChanged,
@@ -9,10 +10,17 @@ import {
 
 import {
   getLeads,
-  nextPage,
-  prevPage,
-  search,
+  nextLeadsPage,
+  prevLeadsPage,
+  searchLeads,
 } from '../redux/leads/actions'
+
+import {
+  getProjects,
+  searchProjects,
+  nextProjectsPage,
+  prevProjectsPage,
+} from '../redux/projects/actions'
 
 // Navbar
 function *watchMenuItemChange() {
@@ -29,19 +37,36 @@ function *watchNavbarStructure() {
 
 // Leads
 function *watchLeadsRequested() {
-  yield takeLatest(leadsActions.LEADS_REQUESTED, getLeads)
+  yield takeLatest(leadActions.LEADS_REQUESTED, getLeads)
 }
 
 function *watchLeadsNextPage() {
-  yield takeLatest(leadsActions.LEADS_NEXT_PAGE, nextPage)
+  yield takeLatest(leadActions.LEADS_NEXT_PAGE, nextLeadsPage)
 }
 
 function *watchLeadsPrevPage() {
-  yield takeLatest(leadsActions.LEADS_PREV_PAGE, prevPage)
+  yield takeLatest(leadActions.LEADS_PREV_PAGE, prevLeadsPage)
 }
 
 function *watchLeadsSearch() {
-  yield takeLatest(leadsActions.LEADS_SEARCH, search)
+  yield takeLatest(leadActions.LEADS_SEARCH, searchLeads)
+}
+
+// Projects
+function *watchProjectsRequest() {
+  yield takeLatest(projectActions.PROJECTS_REQUESTED, getProjects)
+}
+
+function *watchProjectsSearch() {
+  yield takeLatest(projectActions.SEARCH_PROJECTS, searchProjects)
+}
+
+function *watchProjectsNextPage() {
+  yield takeLatest(projectActions.SAGA_PROJECTS_NEXT_PAGE, nextProjectsPage)
+}
+
+function *watchProjectsPrevPage() {
+  yield takeLatest(projectActions.SAGA_PROJECTS_PREV_PAGE, prevProjectsPage)
 }
 
 export default function *rootSaga() {
@@ -49,10 +74,16 @@ export default function *rootSaga() {
     watchMenuItemChange(),
     watchSectionChange(),
     watchNavbarStructure(),
+
     watchLeadsRequested(),
     watchLeadsNextPage(),
     watchLeadsPrevPage(),
     watchLeadsSearch(),
+
+    watchProjectsRequest(),
+    watchProjectsSearch(),
+    watchProjectsNextPage(),
+    watchProjectsPrevPage(),
   ])
 }
 

@@ -14,11 +14,7 @@ const initialState = {
 export const projectsReducer = (state = initialState, action) => {
   const { payload } = action
   switch (action.type) {
-    case actionTypes.projectsRequested:
-      return {
-        ...state
-      }
-    case actionTypes.projectsReceived:
+    case actionTypes.PROJECTS_RECEIVED:
       return {
         ...state,
         items: payload.items,
@@ -28,7 +24,7 @@ export const projectsReducer = (state = initialState, action) => {
           totalRecords: payload.total,
         }
       }
-    case actionTypes.projectsNextPage:
+    case actionTypes.PROJECTS_NEXT_PAGE:
       if (state.pagination.page === state.pagination.totalPages)
         return state
 
@@ -39,7 +35,7 @@ export const projectsReducer = (state = initialState, action) => {
           page: state.pagination.page + 1
         }
       }
-    case actionTypes.projectsPrevPage:
+    case actionTypes.PROJECTS_PREV_PAGE:
       if (state.pagination.page === 1)
         return state
 
@@ -50,7 +46,7 @@ export const projectsReducer = (state = initialState, action) => {
           page: state.pagination.page - 1
         }
       }
-    case actionTypes.projectsFilter:
+    case actionTypes.FILTER_PROJECTS:
       return {
         ...state,
         pagination: {

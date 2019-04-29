@@ -8,17 +8,17 @@ export function *getLeads() {
   yield put(leadsReceived(data))
 }
 
-export function *nextPage() {
+export function *nextLeadsPage() {
   yield put({ type: actionTypes.LEADS_NEXT_PAGE })
   yield call(getLeads)
 }
 
-export function *prevPage() {
+export function *prevLeadsPage() {
   yield put({ type: actionTypes.LEADS_PREV_PAGE })
   yield call(getLeads)
 }
 
-export function *search({ filter }) {
+export function *searchLeads({ filter }) {
   yield put({ type: actionTypes.LEADS_FILTER, payload: filter })
   yield call(getLeads)
 }

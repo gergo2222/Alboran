@@ -1,86 +1,31 @@
+import { select, call, put } from 'redux-saga/effects'
 import { actionTypes } from './constants'
+import { projects } from '../../utils/api'
 
-const projectsRequested = () => {
-  return {
-    type: actionTypes.projectsRequested
-  }
-}
-const projectsReceived = (projects) => {
-  return {
-    type: actionTypes.projectsReceived,
-    payload: projects
-  }
-}
-const nextPage = () => {
-  return {
-    type: actionTypes.projectsNextPage
-  }
-}
-const prevPage = () => {
-  return {
-    type: actionTypes.projectsPrevPage
-  }
-}
-const filterBy = (query) => {
-  return {
-    type: actionTypes.projectsFilter,
-    payload: query
-  }
+export function *getProjects() {
+  const { pagination } = yield select(state => state.projects)
+  const data = yield call(projects, pagination)
+
+  yield put({
+    type: actionTypes.PROJECTS_RECEIVED,
+    payload: data
+  })
 }
 
-export function getProjects() {
-  return function (dispatch, getState) {
-    dispatch(projectsRequested())
-
-    const { pagination } = getState().projects
-
-    let projectList = []
-    for (let index = 1; index < 100; index++) {
-      projectList.push({
-        project: `Project ${index}`,
-        client: 'Alpha',
-        office: 'Numero Uno',
-        projectId: index,
-        startOn: '2019-01-01',
-        endOn: '2019-01-01',
-        serviceType: 'Mystery shopping',
-        manager: 'Wesley Springfield'
-      })
-    }
-
-    projectList = pagination.filter ? projectList.filter(x => x.project.includes(pagination.filter)) : projectList
-
-    const {
-      page,
-      recordsOnPage
-    } = pagination
-
-    const response = {
-      items: projectList.slice((page - 1) * recordsOnPage, page * recordsOnPage),
-      total: projectList.length,
-      totalPages: projectList.length % recordsOnPage === 0 ? projectList.length / recordsOnPage : Math.floor(projectList.length / recordsOnPage + 1)
-    }
-
-    dispatch(projectsReceived(response))
-  }
+export function *nextProjectsPage() {
+  yield put({ type: actionTypes.PROJECTS_NEXT_PAGE })
+  yield call(getProjects)
 }
 
-export function onNextPage() {
-  return function(dispatch) {
-    dispatch(nextPage())
-  }
+export function *prevProjectsPage() {
+  yield put({ type: actionTypes.PROJECTS_PREV_PAGE })
+  yield call(getProjects)
 }
 
-export function onPrevPage() {
-  return function(dispatch) {
-    dispatch(prevPage())
-  }
-}
-
-export function onProjectSearch(query) {
-  return function(dispatch) {
-    dispatch(filterBy(query))
-
-    dispatch(getProjects())
-  }
+export function *searchProjects({ filter }) {
+  yield put({
+    type: actionTypes.FILTER_PROJECTS,
+    payload: filter
+  })
+  yield call(getProjects)
 }
