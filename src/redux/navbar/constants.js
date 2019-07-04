@@ -17,10 +17,20 @@ export const sectionLayout = [
   { id: 'home', label: 'Home', defaultMenuItem: 'home', defaultItemUrl: '/home', icon: 'home'},
   { id: 'sales', label: 'Sales', defaultMenuItem: 'leads', defaultItemUrl: '/leads', icon: 'sales' },
   { id: 'operations', label: 'Operations', defaultMenuItem: 'invoices', defaultItemUrl: '/invoices', icon: 'operations' },
+  { id: 'shell', label: 'Operations', defaultMenuItem: 'invoices', defaultItemUrl: '/shell', icon: 'operations' }
 ]
 
 export const menuLayout = {
   home: [
+    { id: 'home', label: 'Home', url: '/home' },
+    { id: 'helpdesk', label: 'Help Desk', url: '/helpdesk'},
+    { id: 'offices', label: 'Offices', url: '/offices'},
+    { id: 'countries', label: 'Countries', url: '/countries'},
+    { id: 'currencies', label: 'Currencies', url: '/currencies'},
+    { id: 'userdirectory', label: 'User Directory', url: '/userdirectory'},
+    { id: 'releasenotes', label: 'Release Notes', url: '/releasenotes'},
+  ],
+  shell: [
     { id: 'home', label: 'Home', url: '/home' },
     { id: 'helpdesk', label: 'Help Desk', url: '/helpdesk'},
     { id: 'offices', label: 'Offices', url: '/offices'},
